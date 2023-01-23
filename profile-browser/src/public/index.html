@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Black CodHer API Page</title>
+  <meta name="description" content="API Welcome Page">
+  <meta name="author" content="CBF for BlackCodHer">
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css" media="screen"/>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome to [------]'s Profile RESTful API</h1>
+    <p>This page contains some simple ways to get information from a profile file.</p>
+    <img src="/images/black-codher-logo.png" alt="CodHer Logo"/>
+      <ul>
+        <li class="tick">
+          <h2><span>GET</span><a href="./">/</a></h2>
+          <p>Returns the <strong>index.html</strong> (this page).</p>
+        </li>
+        <li class="cross">
+          <h2><span>GET</span><a href="./api/profiles">/api/profiles</a></h2>
+          <p>Returns a list of reduced profiles information from the <strong>profiles.json</strong> file. The expected results should only return each profiles id, firstname and lastname</p>
+        
+          <h3>Response Body:</h3>
+          <code>
+            [<br/>
+              {
+                "id":1,
+                "firstname" : "Maya",
+                "lastname" : "Angelou",
+              },<br/>
+              {
+                "id":2,
+                "firstname" : "Toni",
+                "lastname" : "Morrison",
+                }<br/>
+                ....<br/>
+                ....<br/>
+            ]
+          </code>
+        </li>
+        <li class="cross">
+          <h2><span>GET</span><a href="./api/profiles/1">/api/profiles/:id</a></h2>
+          <p>Returns a single profile based on a querystring parameter entered by the client. The API should search the profiles in the list and return the firstname and lastname of the profile that matches, e.g.
+          </p>
+          <h3>Request URL:</h3>
+          <code>
+            /api/profiles/2
+          </code>
+          <h3>Response Body:</h3>
+          <code>
+            [<br/>
+              {
+                "id":2,
+                "firstname" : "Toni",
+                "lastname" : "Morrison",
+                }<br/>
+            ]
+          </code>
+        </li>
+        <li class="cross">
+          <h2><span class="post">POST</span><a href="./api/profiles">/api/profiles</a></h2>
+          <p>Post a new profile object to server. Will return status 200 and success if successful. Will return Status 500 fail if unsuccessful.
+            Profile must be valid JSON object, e.g:<br/>
+            <h3>Request Body:</h3>
+            <code>
+              [<br/>
+                {
+                  "firstname" : "Jessica",
+                  "lastname" : "Jones",
+                  "bio": "Detective"
+                  }<br/>
+              ]
+            </code>
+            <h3>Response:</h3>
+          <code>
+            Status Code: 200 OK<br/>
+            Body: Success
+          </code><br/>
+            <br/>
+            <em>N.B. To test this call you will need an API tester such as Postman</em>
+          </p>
+        </li>
+        <li class="cross">
+          <h2><span class="put">PUT</span><a href="./api/profiles">/api/profiles/:id</a></h2>
+          <p>Replaces an existing profile object. Will return status 200 and success if successful. Returns 404 Not Found if the id doesn't exist. Will return Status 500 error if unsuccessful.
+            Profile must be valid JSON object, e.g.:
+            <h3>Request URL:</h3>
+            <code>
+              /api/profiles/5
+            </code>
+            <h3>Request Body:</h3>
+            <code>
+              [<br/>
+                {
+                  "firstname" : "Jessica Campbell",
+                  "lastname" : "Jones Cage",
+                  "bio": "Detective"
+                  }<br/>
+              ]
+            </code>
+            <h3>Response:</h3>
+          <code>
+            Status Code: 200 OK<br/>
+            Body: Success
+          </code><br/><br/>
+            <em>N.B. To test this call you will need an API tester such as Postman</em>
+          </p>
+        </li>
+        <li class="cross">
+          <h2><span class="patch">PATCH</span><a href="./api/profiles">/api/profiles/:id</a></h2>
+          <p>Updates an existing profile object. Will return status 200 and success if successful. Returns 404 Not Found if the id doesn't exist. Will return Status 500 fail if unsuccessful.
+            <strong>Ignores new object attributes</strong>. In the example below the <strong>height</strong> attribute would be ignored, e.g:
+            <h3>Request URL:</h3>
+            <code>
+              /api/profiles/5
+            </code>
+            <h3>Request Body:</h3>
+            <code>
+              [<br/>
+                {
+                  "firstname" : "Jessica Campbell",
+                  "lastname" : "Jones Cage",
+                  "bio": "Detective",
+                  "height": 5.7
+                  }<br/>
+              ]
+            </code>
+            <h3>Response:</h3>
+          <code>
+            Status Code: 200 OK<br/>
+            Body: Success
+          </code><br/><br/>
+            <em>N.B. To test this call you will need an API tester such as Postman</em>
+          </p>
+          </p>
+        </li>
+        <li class="cross">
+          <h2><span class="delete">DELETE</span><a href="./api/profiles">/api/profiles/:id</a></h2>
+          <p>Delete profile by <code>id</code>. Returns 404 Not Found if the id doesn't exist.
+            <h3>Request URL:</h3>
+            <code>
+              /api/profiles/5
+            </code>
+            <h3>Response:</h3>
+          <code>
+            Status Code: 200 OK<br/>
+            Body: Success
+          </code><br/><br/>
+            <em>N.B. To test this call you will need an API tester such as Postman</em>
+          </p>
+        </li>
+      </ul>
+  </div>
+  </body>
+</html>
+

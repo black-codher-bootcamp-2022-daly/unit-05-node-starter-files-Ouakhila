@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/content/css/styles.css"
+      media="screen"
+    />
+    <title>Express Static Server Page</title>
+    <script src="/content/scripts/main.js"></script>
+  </head>
+  <body>
+    <h1>Welcome to an Express Static Server Page</h1>
+    <p>This is a page rendered by your browser.</p>
+    <ul>
+      <li>Returns a HTML Page</li>
+      <li>References a external CSS file: <strong>styles.css</strong></li>
+      <li>
+        References a JavaScript Page:
+        <button onclick="showComplete()">Click Me!</button>
+      </li>
+      <li>References an image: <strong>cake.png</strong></li>
+    </ul>
+
+    <div id="banner" style="visibility: hidden;">
+      Links to JavaScript file: main.js
+    </div>
+    <img
+      class="responsive small"
+      src="/content/images/cake.png"
+      alt="Image of a cake"
+    />
+  </body>
+</html>
