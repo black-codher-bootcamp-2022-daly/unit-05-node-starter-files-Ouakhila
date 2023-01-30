@@ -13,11 +13,11 @@ GET http://localhost:8080/profile
 
 Replace ... with the correct path
 */
-app.get("...", (req, res) => {
-
+app.get("/profiles", (req, res) => {
+  res.writeHead(200, {});
 });
 
-  /*
+/*
   Add a route that returns a list of the profile names and bio 
   from the server as HTML elements on the endpoint below:
 
@@ -25,9 +25,7 @@ app.get("...", (req, res) => {
 
   Replace ... with the correct path
   */
-app.get("...", (req, res) => {
-
-});
+app.get("...", (req, res) => {});
 
 app.listen(port, () => {
   console.info(`Example app listening at http://localhost:${port}`);
